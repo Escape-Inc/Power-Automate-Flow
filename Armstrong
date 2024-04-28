@@ -1,0 +1,16 @@
+Armstrong
+
+
+SET NewVar TO 153
+Text.FromNumber Number: NewVar DecimalPlaces: 0 UseThousandsSeparator: True FormattedNumber=> FormattedNumber
+SET length TO FormattedNumber.Length
+SET sum TO 0
+LOOP WHILE (NewVar) > (0)
+    SET remainder TO NewVar mod 10
+    Variables.TruncateNumber.GetIntegerPart Number: NewVar / 10 Result=> NewVar
+    SET digitpower TO 1
+    LOOP LoopIndex FROM 1 TO length STEP 1
+        SET digitpower TO digitpower * remainder
+    END
+    Variables.IncreaseVariable Value: sum IncrementValue: digitpower
+END
