@@ -1,0 +1,6 @@
+Excel.LaunchExcel.LaunchAndOpenUnderExistingProcess Path: $'''C:\\Users\\mpstme.student\\Downloads\\Excel_Questions.xlsx''' Visible: True ReadOnly: False Instance=> ExcelInstance
+Excel.ReadFromExcel.ReadAllCells Instance: ExcelInstance ReadAsText: False FirstLineIsHeader: True RangeValue=> ExcelData
+LOOP FOREACH CurrentItem IN ExcelData
+    IF CurrentItem['Branch'] = $'''Core''' THEN
+    END
+END

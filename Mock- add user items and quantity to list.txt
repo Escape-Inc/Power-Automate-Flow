@@ -1,0 +1,15 @@
+Display.InputDialog Title: $'''Enter number of items''' Message: $'''Enter number of items''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+Text.ToNumber Text: UserInput Number=> TextAsNumber
+Variables.CreateNewList List=> List
+Variables.CreateNewList List=> Quantity
+SET Total TO 0
+LOOP LoopIndex FROM 1 TO TextAsNumber STEP 1
+    Display.InputDialog Title: $'''Items''' Message: $'''Enter item''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput2 ButtonPressed=> ButtonPressed2
+    Variables.AddItemToList Item: UserInput2 List: List
+    Display.InputDialog Title: $'''Quantity''' Message: $'''Enter quantity of %UserInput2%''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput3 ButtonPressed=> ButtonPressed2
+    Text.ToNumber Text: UserInput3 Number=> UserInput3
+    Variables.AddItemToList Item: UserInput3 List: Quantity
+    Variables.IncreaseVariable Value: Total IncrementValue: UserInput3
+END
+Display.ShowMessageDialog.ShowMessage Title: $'''Total''' Message: $'''Total items: %UserInput%
+Total quantity: %Total%''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed3

@@ -1,0 +1,2 @@
+Display.InputDialog Title: $'''Name''' Message: $'''Enter Name''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+Display.ShowMessageDialog.ShowMessage Title: $'''Length of Name''' Message: $'''Length of Name %UserInput% = %UserInput.length%''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2

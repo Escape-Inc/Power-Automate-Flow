@@ -1,0 +1,6 @@
+Display.InputDialog Title: $'''Number''' Message: $'''Enter the number''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+IF (UserInput mod 2) = 0 THEN
+    Display.ShowMessageDialog.ShowMessage Title: $'''Even number''' Message: $'''%UserInput% is an even number''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2
+ELSE
+    Display.ShowMessageDialog.ShowMessage Title: $'''Odd number''' Message: $'''%UserInput% is an odd number''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2
+END

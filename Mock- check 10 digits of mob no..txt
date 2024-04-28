@@ -1,0 +1,6 @@
+Display.InputDialog Title: $'''Enter mobile number''' Message: $'''Enter mobile number''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+IF UserInput.length = 10 THEN
+    Display.ShowMessageDialog.ShowMessage Title: $'''Mobile Number''' Message: $'''Success! Mobile Number: %UserInput% is 10 digits''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2
+ELSE
+    Display.ShowMessageDialog.ShowMessage Title: $'''Mobile Number''' Message: $'''Error! Mobile Number: %UserInput% is not 10 digits''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2
+END

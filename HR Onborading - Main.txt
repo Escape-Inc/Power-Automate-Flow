@@ -1,0 +1,21 @@
+Excel.LaunchExcel.LaunchAndOpenUnderExistingProcess Path: $'''C:\\Users\\mpstme.student\\Downloads\\EmployeeID Generation.xlsx''' Visible: True ReadOnly: False Instance=> ExcelInstance
+Excel.ReadFromExcel.ReadAllCells Instance: ExcelInstance ReadAsText: False FirstLineIsHeader: True RangeValue=> ExcelData
+SET NewVar TO 1
+SET NewVar2 TO $'''sachi.shah1@svkmmumbai.onmicrosoft.com'''
+LOOP FOREACH CurrentItem IN ExcelData
+    CALL Subflow_1
+    Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: OutputData[0][0] Column: 13 Row: NewVar + 1
+    Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: OutputData[1][0] Column: 14 Row: NewVar + 1
+    Email.SendEmail.AuthenticateAndSend SMTPServer: $'''smtp.office365.com''' Port: 587 EnableSSL: True Username: NewVar2 Password: P'AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAALBm4KTbZUivz0Fj6UIeCgQAAAACAAAAAAADZgAAwAAAABAAAAA92fadXn66bYeVruSWz1nCAAAAAASAAACgAAAAEAAAAIbFBSxns0F6i2MccLpHyAcYAAAAiJLMwrvnk8verFFecQ3dSpU93GHH4+w+FAAAAHca9lyN8eQBbBvnPOP9w8T7lcat' AcceptUntrustedCertificates: False SendFrom: NewVar2 SendTo: NewVar2 Subject: $'''Employee Id and Corporate Email Id''' Body: $'''Hello %CurrentItem[0]%
+
+Please find the below details FYR,
+
+Employee id: %OutputData[0]%
+Corporate Email ID: %OutputData[1]%''' IsBodyHtml: False
+    Variables.IncreaseVariable Value: NewVar IncrementValue: 1
+END
+Excel.CloseExcel.CloseAndSave Instance: ExcelInstance
+
+
+
+

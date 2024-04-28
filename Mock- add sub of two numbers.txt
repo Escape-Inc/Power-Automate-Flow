@@ -1,0 +1,7 @@
+Display.InputDialog Title: $'''Number 1''' Message: $'''Enter first Number''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+Display.InputDialog Title: $'''Number 2''' Message: $'''Enter second Number''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput2 ButtonPressed=> ButtonPressed
+Text.ToNumber Text: UserInput Number=> TextAsNumber
+Text.ToNumber Text: UserInput2 Number=> TextAsNumber2
+Display.ShowMessageDialog.ShowMessage Title: $'''Display''' Message: $'''Addition: %TextAsNumber% + %TextAsNumber2% = %TextAsNumber + TextAsNumber2%
+Subtraction: %TextAsNumber% - %TextAsNumber2% = %TextAsNumber - TextAsNumber2%
+Multiplication: %TextAsNumber% * %TextAsNumber2% = %TextAsNumber * TextAsNumber2%''' Icon: Display.Icon.None Buttons: Display.Buttons.OK DefaultButton: Display.DefaultButton.Button1 IsTopMost: False ButtonPressed=> ButtonPressed2

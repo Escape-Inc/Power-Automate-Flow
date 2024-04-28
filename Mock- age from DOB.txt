@@ -1,0 +1,7 @@
+Display.InputDialog Title: $'''DOB''' Message: $'''Enter date of birth''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> UserInput ButtonPressed=> ButtonPressed
+Text.ConvertTextToDateTime.ToDateTime Text: UserInput DateTime=> TextAsDateTime
+DateTime.GetCurrentDateTime.Local DateTimeFormat: DateTime.DateTimeFormat.DateAndTime CurrentDateTime=> CurrentDateTime
+DateTime.Subtract FromDate: CurrentDateTime SubstractDate: TextAsDateTime TimeUnit: DateTime.DifferenceTimeUnit.Days TimeDifference=> TimeDifference
+SET Years TO TimeDifference / 365
+Variables.TruncateNumber.GetIntegerPart Number: Years Result=> TruncatedValue
+File.WriteText File: $'''C:\\Users\\mpstme.student\\Desktop\\RPA Sachi\\Exam\\Q1b.txt''' TextToWrite: $'''Your Age: %TruncatedValue%''' AppendNewLine: True IfFileExists: File.IfFileExists.Overwrite Encoding: File.FileEncoding.Unicode
